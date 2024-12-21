@@ -1,0 +1,357 @@
+/* || base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  font-family: "Epilogue", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  color: hsl(0, 0%, 8%);
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(0, 0%, 98%);
+}
+
+h1, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* -- */
+/* || header */
+header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5em 1em;
+  background-color: hsl(0, 0%, 98%);
+}
+
+nav > label {
+  text-align: end;
+  cursor: pointer;
+}
+nav > label::after {
+  content: url(./images/icon-menu.svg);
+  display: block;
+}
+
+input {
+  display: none;
+}
+
+ul {
+  display: none;
+}
+
+#hamburger:checked ~ .overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: hsl(0, 0%, 8%);
+  opacity: 0.8;
+  z-index: 1;
+}
+
+#hamburger:checked ~ label::after {
+  content: url(./images/icon-close-menu.svg);
+  display: block;
+  position: absolute;
+  top: 1.5em;
+  right: 1.5em;
+  z-index: 3;
+}
+
+#hamburger:checked ~ .nav-mobile {
+  display: block;
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  left: 35vw;
+  right: 0;
+  background-color: hsl(0, 0%, 98%);
+  z-index: 2;
+  color: hsl(0, 0%, 41%);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 10vh 1.5em;
+}
+#hamburger:checked ~ .nav-mobile > li:nth-last-child(2) {
+  margin-top: 0.8rem;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  height: 2.6rem;
+  line-height: 2.6rem;
+}
+
+.hover-item {
+  color: hsl(0, 0%, 41%);
+}
+
+.hover-item:hover {
+  cursor: pointer;
+  color: hsl(0, 0%, 8%);
+}
+
+.login {
+  align-self: center;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.border {
+  width: 100%;
+  border: 2px solid hsl(0, 0%, 41%);
+  border-radius: 1em;
+}
+
+.border:hover {
+  border-color: hsl(0, 0%, 8%);
+}
+
+.dropdown {
+  display: flex;
+  flex-wrap: wrap;
+}
+.dropdown label::after {
+  content: url(./images/icon-arrow-down.svg);
+  display: inline-block;
+  padding-left: 0.4rem;
+}
+.dropdown ul {
+  flex-basis: 100%;
+  padding-left: 1.5em;
+}
+.dropdown input:checked ~ ul {
+  display: block;
+}
+.dropdown input:checked ~ label::after {
+  content: url(./images/icon-arrow-up.svg);
+}
+
+.features-lists li::before {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+.features-lists li:nth-child(1)::before {
+  content: url(./images/icon-todo.svg);
+}
+.features-lists li:nth-child(2)::before {
+  content: url(./images/icon-calendar.svg);
+}
+.features-lists li:nth-child(3)::before {
+  content: url(./images/icon-reminders.svg);
+}
+.features-lists li:nth-child(4)::before {
+  content: url(./images/icon-planning.svg);
+}
+
+/* -- */
+/* || main */
+picture {
+  display: block;
+}
+picture img {
+  display: block;
+  width: 100%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  text-align: center;
+  flex-grow: 1;
+}
+
+section {
+  padding: 0 1em;
+}
+section p {
+  word-spacing: 0.5px;
+  line-height: 1.65;
+  margin-bottom: 1.4rem;
+  color: hsl(0, 0%, 41%);
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1.15rem;
+}
+
+button {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  color: hsl(0, 0%, 98%);
+  border: 1px solid hsl(0, 0%, 8%);
+  background-color: hsl(0, 0%, 8%);
+  padding: 1em 1.3em;
+  border-radius: 1em;
+}
+
+button:hover {
+  color: hsl(0, 0%, 8%);
+  background-color: hsl(0, 0%, 98%);
+  cursor: pointer;
+}
+
+/* -- */
+/* || footer */
+footer {
+  display: grid;
+  grid-template-columns: 114fr 73fr 90fr 83fr;
+  align-items: center;
+  justify-items: center;
+  gap: 8%;
+  padding: 0 1em;
+  padding-bottom: 1.5rem;
+  flex-grow: 1;
+}
+footer img {
+  width: 100%;
+}
+
+/* -- */
+/* || attribution */
+.attribution {
+  margin: 0 0 0.5rem 0;
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* -- */
+/* || RWD */
+@media screen and (min-width: 1024px) {
+  header {
+    justify-content: start;
+    align-items: center;
+    gap: 4vw;
+    padding: 1.5em clamp(1em, 1em - 0.5rem + 3vw, 2.7em);
+  }
+  nav {
+    flex-grow: 1;
+  }
+  nav > label {
+    display: none;
+  }
+  nav > ul {
+    display: grid;
+    grid-template-columns: repeat(4, auto) 1fr repeat(2, auto);
+    gap: 2.5em;
+  }
+  nav .hover-item {
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  nav .border {
+    width: auto;
+    padding: 0 1.5em;
+  }
+  nav .dropdown {
+    position: relative;
+  }
+  nav .dropdown ul {
+    background-color: white;
+    line-height: 1.8rem;
+    padding: 1em;
+    flex-basis: auto;
+    flex-shrink: 0;
+    position: absolute;
+    top: 2.8rem;
+    border-radius: 0.5rem;
+    width: 9rem;
+    box-shadow: 0 1px 2rem hsla(0, 0%, 41%, 0.2);
+    z-index: 2;
+  }
+  nav .dropdown ul li {
+    height: 1.8rem;
+    line-height: 1.8rem;
+  }
+  nav .dropdown .features-lists {
+    right: 0;
+  }
+  nav .dropdown .company-lists {
+    left: 0;
+  }
+  main {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    grid-template-rows: 1fr auto;
+    column-gap: clamp(3rem, 2.5rem + 10vw, 9rem);
+    row-gap: 0;
+    text-align: start;
+    width: 82vw;
+    margin: auto;
+    padding-left: 2.5em;
+    flex-grow: 0;
+    transform: translateY(-1.6rem);
+    min-width: 63rem;
+  }
+  picture {
+    grid-column: 2/3;
+    grid-row: 1/3;
+  }
+  section {
+    grid-row: 1/2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+  section h1 {
+    font-size: clamp(2.2rem, 1.7rem + 4vw, 5rem);
+    letter-spacing: -0.5px;
+    margin-bottom: 2.8rem;
+  }
+  section p {
+    font-size: 1.1rem;
+    letter-spacing: 0.2px;
+    margin-bottom: 3rem;
+  }
+  section button {
+    font-size: clamp(1rem, 0.5rem + 2vw, 1.1rem);
+    padding: 1em 1.5em;
+  }
+  footer {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    align-self: flex-end;
+    transform: none;
+  }
+  section, footer {
+    padding: 0;
+  }
+}
+

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./build/main.css" />
+
+    <title>Frontend Mentor | Intro section with dropdown navigation</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style></style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <img src="images/logo.svg" alt="logo" />
+        <nav>
+          <input type="checkbox" id="hamburger" />
+          <label for="hamburger"></label>
+          <ul class="nav-mobile">
+            <li class="dropdown features">
+              <input
+                type="checkbox"
+                id="features-dropdown"
+                class="sub-checkbox"
+              />
+              <label for="features-dropdown" class="hover-item">Features</label>
+              <ul class="features-lists">
+                <li class="hover-item">Todo List</li>
+                <li class="hover-item">Calendar</li>
+                <li class="hover-item">Reminders</li>
+                <li class="hover-item">Planning</li>
+              </ul>
+            </li>
+
+            <li class="dropdown company">
+              <input
+                type="checkbox"
+                id="company-dropdown"
+                class="sub-checkbox"
+              />
+              <label for="company-dropdown" class="hover-item">Company</label>
+              <ul class="company-lists">
+                <li class="hover-item">History</li>
+                <li class="hover-item">Our Team</li>
+                <li class="hover-item">Blog</li>
+              </ul>
+            </li>
+
+            <li class="hover-item">Careers</li>
+
+            <li class="hover-item">About</li>
+            <div></div>
+            <li class="login hover-item">Login</li>
+            <li class="login border hover-item">Register</li>
+          </ul>
+          <div class="overlay"></div>
+        </nav>
+      </header>
+
+      <main>
+        <picture>
+          <source
+            media="(max-width: 1023px)"
+            srcset="./images/image-hero-mobile.png"
+          />
+          <source
+            media="(min-width: 1024px)"
+            srcset="./images/image-hero-desktop.png"
+          />
+          <img src="images/image-hero-mobile.png" alt="" />
+        </picture>
+
+        <section>
+          <h1>Make remote work</h1>
+          <p>
+            Get your team in sync, no matter your location. Streamline
+            processes, create team rituals, and watch productivity soar.
+          </p>
+          <button>Learn more</button>
+        </section>
+
+        <footer>
+          <img src="images/client-databiz.svg" alt="client databiz's logo" />
+          <img
+            src="images/client-audiophile.svg"
+            alt="client audiophile's logo"
+          />
+          <img src="images/client-meet.svg" alt="client meet's logo" />
+          <img src="images/client-maker.svg" alt="client maker's logo" />
+        </footer>
+      </main>
+    </div>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Wanzi</a>.
+    </div>
+    <script type="module">
+      import { offset } from "./offset.js";
+      offset();
+    </script>
+  </body>
+</html>
