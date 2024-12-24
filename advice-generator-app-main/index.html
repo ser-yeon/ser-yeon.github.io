@@ -19,218 +19,39 @@
       rel="stylesheet"
     />
 
+    <link rel="stylesheet" href="main.css" />
+
     <title>Frontend Mentor | Advice generator app</title>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-      /* || base */
-      :root {
-        box-sizing: border-box;
-
-        --Light-Cyan: hsl(193, 38%, 86%);
-        --Neon-Green: hsl(150, 100%, 66%);
-        --Grayish-Blue: hsl(217, 19%, 38%);
-        --Dark-Grayish-Blue: hsl(217, 19%, 24%);
-        --Dark-Blue: hsl(218, 23%, 16%);
-        --button-height: 4rem;
-      }
-
-      *,
-      ::before,
-      ::after {
-        box-sizing: inherit;
-      }
-
-      html,
-      body {
-        margin: 0;
-        height: 100%;
-      }
-
-      h1,
-      p {
-        margin: 0;
-      }
-
-      body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background-color: var(--Dark-Blue);
-
-        font-family: "Manrope", serif;
-        font-optical-sizing: auto;
-        font-weight: 800;
-        font-style: normal;
-      }
-
-      .container {
-        margin: auto 1rem;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      /* || main */
-      main {
-        padding: 1.5rem;
-        background-color: var(--Dark-Grayish-Blue);
-        border-radius: 0.5rem;
-      }
-
-      h1 {
-        color: var(--Neon-Green);
-        text-transform: uppercase;
-        font-size: 0.7rem;
-        letter-spacing: 0.2rem;
-        margin-top: 1rem;
-      }
-
-      p {
-        color: var(--Light-Cyan);
-        font-size: 1.5rem;
-        word-spacing: -1px;
-        margin-top: 1.5rem;
-      }
-
-      picture,
-      img {
-        display: block;
-      }
-
-      picture img {
-        width: 100%;
-        margin: 1.5rem 0 2.5rem 0;
-      }
-
-      button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: var(--button-height);
-        height: var(--button-height);
-        border: 1px solid var(--Neon-Green);
-        background-color: var(--Neon-Green);
-        border-radius: 50%;
-        margin-top: -2rem;
-      }
-      button:hover {
-        cursor: pointer;
-        box-shadow: 0 0 2rem var(--Neon-Green);
-      }
-
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-        color: var(--Grayish-Blue);
-        margin-bottom: 0.5rem;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-        color: var(--Light-Cyan);
-      }
-
-      /* || RWD */
-      @media screen and (min-width: 376px) {
-        .container {
-          width: 37.5vw;
-          min-width: 21.45rem;
-          margin: auto;
-        }
-
-        main {
-          padding: 1.5rem clamp(1.5rem, 1rem + 3vw, 3rem);
-          border-radius: clamp(0.5rem, 2vw, 1rem);
-        }
-
-        h1 {
-          font-size: 0.75rem;
-          letter-spacing: 0.3rem;
-          margin: clamp(1rem, 0.5rem + 2vw, 1.5rem) auto 0 auto;
-        }
-
-        p {
-          font-size: clamp(1.5rem, 1rem + 1vw, 1.75rem);
-        }
-
-        picture img {
-          margin: clamp(1.5rem, 1rem + 3vw, 2.5rem) 0
-            clamp(2.5rem, 2rem + 2vw, 3rem) 0;
-        }
-      }
-
-      @media screen and (max-width: 1024px) and (max-height: 1023px) {
-        .container {
-          margin-top: 18vh;
-        }
-      }
-
-      @media screen and (min-width: 1024px) {
-        .container {
-          margin-top: auto;
-        }
-      }
-    </style>
   </head>
   <body>
-    <div class="container">
-      <main>
-        <h1 class="advice-id">Advice #117<!-- Advice ID goes here --></h1>
-        <p class="advice-text">
-          “ It is easy to sit up and take notice, what's difficult is getting up
-          and taking action.<!-- Advice text goes here -->
-          ”
-        </p>
-        <picture>
-          <source
-            media="(max-width: 600px)"
-            srcset="./images/pattern-divider-mobile.svg"
-          />
-          <source
-            media="(min-width: 601px)"
-            srcset="./images/pattern-divider-desktop.svg"
-          />
-          <img src="images/pattern-divider-mobile.svg" alt="" />
-        </picture>
-      </main>
+    <main>
+      <h1 class="advice-id">Advice #117</h1>
+      <p class="advice-text" aria-live="assertive"></p>
+      <picture>
+        <source
+          media="(min-width: 35.5rem)"
+          srcset="./images/pattern-divider-desktop.svg"
+        />
+        <img src="images/pattern-divider-mobile.svg" alt="" />
+      </picture>
       <button>
-        <img class="dice" src="images/icon-dice.svg" alt="icon dice" />
+        <img
+          class="dice"
+          src="images/icon-dice.svg"
+          alt="dice - roll for a random quote"
+        />
       </button>
-    </div>
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by
-      <a href="https://www.frontendmentor.io/profile/ser-yeon">Wanzi</a>.
-    </div>
-    <script>
-      async function fetchData() {
-        const apiUrl = "https://api.adviceslip.com/advice";
+    </main>
 
-        try {
-          const response = await fetch(apiUrl, { cache: "no-store" });
-
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-
-          const data = await response.json();
-          const adviceId = document.querySelector(".advice-id");
-          const adviceText = document.querySelector(".advice-text");
-          //console.log("API 响应数据:", data);
-          adviceId.textContent = `advice #${data.slip.id}`;
-          adviceText.textContent = `“${data.slip.advice}”`;
-        } catch (error) {
-          console.error("请求出错:", error);
-        }
-      }
-
-      const button = document.querySelector("button");
-      button.addEventListener("click", () => {
-        fetchData();
-      });
-    </script>
+    <footer>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://www.frontendmentor.io/profile/ser-yeon">Wanzi</a>.
+      </div>
+    </footer>
+    <script src="main.js"></script>
   </body>
 </html>

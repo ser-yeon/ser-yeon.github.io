@@ -1,0 +1,126 @@
+/* || base */
+:root {
+    box-sizing: border-box;
+
+    --Light-Cyan: hsl(193, 38%, 86%);
+    --Neon-Green: hsl(150, 100%, 66%);
+    --Grayish-Blue: hsl(217, 19%, 38%);
+    --Dark-Grayish-Blue: hsl(217, 19%, 24%);
+    --Dark-Blue: hsl(218, 23%, 16%);
+    --button-height: 4rem;
+  }
+
+  *,
+  ::before,
+  ::after {
+    box-sizing: inherit;
+  }
+
+  html,
+  body {
+    margin: 0;
+  }
+
+  h1,
+  p {
+    margin: 0;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--Dark-Blue);
+
+    font-family: "Manrope", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+  }
+
+  /* || main */
+  main {
+    margin: auto 1rem;
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--Dark-Grayish-Blue);
+    border-radius: 0.5rem;
+    margin-top: 18vh;
+    max-width: 33.5rem;
+    position: relative;
+  }
+
+  h1 {
+    color: var(--Neon-Green);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.2rem;
+    margin-top: 1rem;
+  }
+
+  p {
+    color: var(--Light-Cyan);
+    font-size: 1.5rem;
+    word-spacing: -1px;
+    margin-top: 1.5rem;
+  }
+
+  picture,
+  img {
+    display: block;
+  }
+
+  picture img {
+    width: 100%;
+    margin: clamp(1.5rem, 1rem + 3vw, 40px) 0
+        clamp(2.5rem, 2rem + 2vw, 48px) 0;
+  }
+
+  button {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) translateY(50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--button-height);
+    height: var(--button-height);
+    border: 1px solid var(--Neon-Green);
+    background-color: var(--Neon-Green);
+    border-radius: 50%;
+  }
+  button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 2rem var(--Neon-Green);
+  }
+
+  .attribution {
+    font-size: 11px;
+    text-align: center;
+    color: var(--Grayish-Blue);
+    margin-bottom: 0.5rem;
+  }
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+    color: var(--Light-Cyan);
+  }
+
+  /* || RWD */
+  @media screen and (min-width: 35.5rem) {
+    main {
+      margin: auto;
+      border-radius: 1em;
+    }
+
+    h1 {
+      font-size: 0.75rem;
+      letter-spacing: 0.3rem;
+      margin: clamp(1rem, 0.5rem + 2vw, 24px) auto 0 auto;
+    }
+
+    p {
+      font-size: 1.75rem;
+    }
+  }
